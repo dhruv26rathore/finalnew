@@ -1,0 +1,11 @@
+.mat-tab-label-active{
+        background-color:#8DC63F ;
+        color:black;
+        opacity: 1 !important;
+        font-size: larger;
+      }
+    .mat-tab-label{
+      font-size: xx-large;
+    }
+
+    
