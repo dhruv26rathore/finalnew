@@ -1,59 +1,99 @@
-<table id="table">
-    <tr>
-      <th>Cust Ref</th>
-      <th>MID</th>
-      <th>LCP</th>
-      <th>Merchant Name</th>
-      <th>interchange country</th>
-      <th>Card Name</th>
-      <th>Processing Agent</th>
-      <th>Acpt Commercial Card</th>
-      <th>Refund</th>
-      <th>Currency</th>
-      <th>Valid From</th>
-      <th>Valid TO</th>
-    </tr>
-    <tr>
-      <td><a>PO1674783569</a></td>
-      <td>10090654</td>
-      <td>
-        <mat-select><mat-option value="option1">Worldpay (UK) Limited</mat-option>
-            <mat-option value="option2">option 2</mat-option>
-            <mat-option value="option3">option 3</mat-option></mat-select></td>
-      <td>ABC</td>
-      <td>
-        <mat-select><mat-option value="option1">United Kingdom</mat-option>
-            <mat-option value="option2">option 2</mat-option>
-            <mat-option value="option3">option 3</mat-option></mat-select></td>
-      <td>
-        <mat-select><mat-option value="option1">Amex</mat-option>
-            <mat-option value="option2">option 2</mat-option>
-            <mat-option value="option3">option 3</mat-option></mat-select></td>
-      <td>
-        <mat-select><mat-option value="option1">American Express</mat-option>
-            <mat-option value="option2">option 2</mat-option>
-            <mat-option value="option3">option 3</mat-option></mat-select></td>
-      <td><mat-checkbox color="warn"></mat-checkbox></td>
-      <td><mat-checkbox color="warn"></mat-checkbox></td>
-      <td>GBP</td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-  <!-- <table>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  <td></td>
+<div>
+  <div style="margin-top:100px;">
+<mat-form-field appearance="outline">
+  <input (keyup)="applyFilter($event.target.value)" matInput appearance="outline" placeholder="Search" style=""> 
+</mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
 
-  </table> -->
+  <!-- Cust Ref Column -->
+  <ng-container class="gap" matColumnDef="custref">
+    <th mat-header-cell *matHeaderCellDef>Cust Ref</th>
+    <td mat-cell *matCellDef="let element">{{element.custref}}</td>
+  </ng-container>
+
+  <!-- Mid Column -->
+  <ng-container matColumnDef="mid">
+    <th mat-header-cell *matHeaderCellDef>MID</th>
+    <td mat-cell *matCellDef="let element">{{element.mid}}</td>
+  </ng-container>
+
+  <!--LCP Column -->
+  <ng-container matColumnDef="lcp">
+    <th mat-header-cell *matHeaderCellDef>LCP</th>
+    <td mat-cell *matCellDef="let element">
+      <mat-select>
+      <mat-option value="option1">Worldpay (UK) Limited</mat-option>
+      <mat-option value="option2">option 2</mat-option>
+      <mat-option value="option3">option 3</mat-option>
+    </mat-select>
+  </td>
+  </ng-container>
+
+  <!-- Merchant Name Column -->
+  <ng-container matColumnDef="merchant_name">
+    <th mat-header-cell *matHeaderCellDef>Merchant Name</th>
+    <td mat-cell *matCellDef="let element">{{element.merchant_name}}</td>
+  </ng-container>
+
+  <!-- Interchange Country Column -->
+  <ng-container matColumnDef="interchange_country">
+    <th mat-header-cell *matHeaderCellDef>Interchange Country</th>
+    <td mat-cell *matCellDef="let element"><mat-select><mat-option value="option1">United Kingdom</mat-option>
+      <mat-option value="option2">option 2</mat-option>
+      <mat-option value="option3">option 3</mat-option></mat-select></td>
+  </ng-container>
+
+    <!-- Card Name Column -->
+    <ng-container matColumnDef="card_name">
+      <th mat-header-cell *matHeaderCellDef>Card Name</th>
+      <td mat-cell *matCellDef="let element"><mat-select><mat-option value="option1">Amex</mat-option>
+        <mat-option value="option2">option 2</mat-option>
+        <mat-option value="option3">option 3</mat-option></mat-select></td>
+    </ng-container>
+
+    <!-- Processing Agent Column -->
+    <ng-container matColumnDef="processing_agent">
+      <th mat-header-cell *matHeaderCellDef>Processing Agent</th>
+      <td mat-cell *matCellDef="let element"><mat-select><mat-option value="option1">American Express</mat-option>
+        <mat-option value="option2">option 2</mat-option>
+        <mat-option value="option3">option 3</mat-option></mat-select></td>
+    </ng-container>
+
+        <!-- Acpt Commercial Card Column -->
+        <ng-container matColumnDef="acpt_commercial_card">
+          <th mat-header-cell *matHeaderCellDef>Acpt Commercial Card</th>
+          <td mat-cell *matCellDef="let element"><mat-checkbox color="warn"></mat-checkbox></td>
+        </ng-container>
+
+  <!-- Refund Column -->
+  <ng-container matColumnDef="refund">
+    <th mat-header-cell *matHeaderCellDef>Refund</th>
+    <td mat-cell *matCellDef="let element"><mat-checkbox color="warn"></mat-checkbox></td>
+  </ng-container>
+
+  <!-- Currency Column -->
+  <ng-container matColumnDef="currency">
+    <th mat-header-cell *matHeaderCellDef>Currency</th>
+    <td mat-cell *matCellDef="let element"> {{element.currency}} </td>
+  </ng-container>
+
+  <!-- Valid From Column -->
+  <ng-container matColumnDef="valid_from">
+    <th mat-header-cell *matHeaderCellDef>Valid From</th>
+    <td mat-cell *matCellDef="let element"> {{element.valid_from}} </td>
+  </ng-container>
+
+  <!-- Valid To Column -->
+  <ng-container matColumnDef="valid_to">
+    <th mat-header-cell *matHeaderCellDef>Valid To</th>
+    <td mat-cell *matCellDef="let element"> {{element.valid_to}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

@@ -21,7 +21,7 @@
     color: black; */
     /* word-wrap: break-word; */
   /* } */
-  #table
+  /* #table
   {
     table-layout: auto;
     width:auto;
@@ -41,18 +41,17 @@
   #table td{
     width:200px;
     /* height:70px; */
-    border: 1px solid black;
-    padding:10px;
-    text-align:left;
+    /* border: 1px solid black; */
+    /* padding:10px; */
+    /* text-align:left; */
     /* display: inline-block; */
     /* word-break: break-word; */
-  }
+  /* } */ 
 
-  .mat-select {
-    /* background: red; */
-    width:220px;
-    word-break: break-word;
-}
+   .mat-select {
+     /* background: red; */
+     width:220px; 
+     /* word-break: break-word;   */}
 
 /* .mat-checkbox {
   color: rgb(0,178,0);}
@@ -60,3 +59,28 @@
     color:black;
     background-color: white;
   } */
+  
+table {
+  width: fit-content;
+}
+.mat-cell{
+  margin-left:30px;
+  /* border: 1px solid black; */
+  text-align: left;
+  padding: 8px 8px 8px 0;
+  /* background-color: black; */
+}
+.mat-header-cell{
+  padding: 10px 10px 10px 0;
+  text-align: center;
+}
+
+.mat-form-field{
+  width: 97px;
+  margin-left: 19px;
+}
+.mat-form-field-flex{
+  max-height:50px;
+  margin-top:0px;
+  margin-left: ;
+}
